@@ -1,12 +1,20 @@
-Linked List can be made using 
+Linked List can be made using
 
-1) Structures - C or C++
+1. Structures - C or C++
 
-as well as 
+as well as
 
-2) Classes - C++
+2. Classes - C++
 
+By writing the following code:
 
+    Node *P;            It can only store the Node memory address
+    P = new Node;       It actually is a memory address P is like 0x6000013e0040 - new means it is created in Heap
 
+In the 1st line are we first creating a pointer on the stack,
+then the 2nd line assigning the address of the Node to pointer P (where Node is created on the Heap)?
 
-LinkedList can be either 
+All the pointers we create like first, p, q, temp, last, etc. are created in stack,
+right? & from there then, points to specific nodes in heap as we want! - Exactly
+
+Binary Search cannot be done on LinkedList
