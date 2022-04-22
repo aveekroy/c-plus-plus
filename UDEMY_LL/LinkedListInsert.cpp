@@ -5,17 +5,18 @@ struct Node
 {
     int data;
     struct Node *next;
-} *first = NULL;
+};
 
-void create(int A[], int n)
+Node *head = NULL;
+
+void create(int A[], int length)
 {
-    int i;
-    struct Node *t, *last;
-    first = new Node;
-    first->data = A[0];
-    first->next = NULL;
-    last = first;
-    for (i = 1; i < n; i++)
+    Node *t, *last;
+    head = new Node;
+    head->data = A[0];
+    head->next = NULL;
+    last = head;
+    for (int i = 1; i < length; i++)
     {
         t = new Node;
         t->data = A[i];
@@ -46,8 +47,7 @@ int count(Node *p)
 
 void Insert(struct Node *p, int index, int x)
 {
-    struct Node *t;
-    int i;
+    Node *t;
     if (index < 0 || index > count(p))
         return;
     t = new Node;
@@ -55,13 +55,13 @@ void Insert(struct Node *p, int index, int x)
     // When a node needs to be inserted at the beginning
     if (index == 0)
     {
-        t->next = first;
-        first = t;
+        t->next = head;
+        head = t;
     }
     // When a node needs to be inserted in between two nodes or at the last
     else
     {
-        for (i = 0; i < index - 1; i++)
+        for (int i = 0; i < index - 1; i++)
             p = p->next;
         t->next = p->next;
         p->next = t;
@@ -70,15 +70,16 @@ void Insert(struct Node *p, int index, int x)
 
 // There is an issue below for InsertAtLast - not working correctly
 
-// void InsertAtLast(int value)
+// void InsertAtLast(Node *p, int value)
 // {
-//     Node *last = new Node;
+//     Node *last;
 //     Node *t = new Node;
 //     t->data = value;
 //     t->next = NULL;
-//     if (first == NULL)
+
+//     if (head == NULL)
 //     {
-//         first = t;
+//         head = t;
 //         last = t;
 //     }
 //     else
@@ -90,15 +91,25 @@ void Insert(struct Node *p, int index, int x)
 
 int main()
 {
+
+    // InsertAtLast(head, 19);
+    // Display(head);
+
+    // InsertAtLast(head, 39);
+    // Display(head);
+
     int A[] = {10, 20, 30, 40, 50};
     create(A, 5);
-    Insert(first, 0, 5);
-    Display(first);
+    Display(head);
     cout << endl;
-    Insert(first, 2, 15);
-    Display(first);
+
+    Insert(head, 0, 5);
+    Display(head);
     cout << endl;
-    // InsertAtLast(19);
-    // Display(first);
+
+    Insert(head, 4, 15);
+    Display(head);
+    cout << endl;
+
     return 0;
 }
