@@ -46,7 +46,7 @@ int count(Node *p)
     return count;
 }
 
-void Delete(struct Node *p, int index)
+void Delete(Node *p, int index)
 {
 
     Node *d = head;
@@ -73,11 +73,36 @@ void Delete(struct Node *p, int index)
     }
 }
 
+void DeleteDuplicates(Node *p)
+{
+
+    Node *q = p->next;
+
+    while (q != nullptr)
+    {
+        if (p->data != q->data)
+        {
+            p = q;
+            q = q->next;
+        }
+        else
+        {
+            p->next = q->next;
+            delete q;
+            q = p->next;
+        }
+    }
+}
+
 int main()
 {
 
-    int A[] = {10, 20, 30, 40, 50};
-    create(A, 5);
+    int A[] = {10, 20, 20, 30, 40, 50, 50};
+    create(A, 7);
+    Display(head);
+    cout << endl;
+
+    DeleteDuplicates(head);
     Display(head);
     cout << endl;
 
