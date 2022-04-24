@@ -70,33 +70,32 @@ void Insert(struct Node *p, int index, int x)
 
 // There is an issue below for InsertAtLast - not working correctly
 
-// void InsertAtLast(Node *p, int value)
-// {
-//     Node *last;
-//     Node *t = new Node;
-//     t->data = value;
-//     t->next = NULL;
+void InsertAtLast(int value)
+{
 
-//     if (head == NULL)
-//     {
-//         head = t;
-//         last = t;
-//     }
-//     else
-//     {
-//         last->next = t;
-//         last = t;
-//     }
-// }
+    Node *tmp, *last;
+    tmp = new Node;
+    tmp->data = value;
+    tmp->next = NULL;
+
+    if (head == NULL)
+    {
+        head = last = tmp;
+    }
+    else
+    {
+        last = head;
+        while (last->next)
+        {
+            last = last->next;
+        }
+        last->next = tmp;
+        last = tmp;
+    }
+}
 
 int main()
 {
-
-    // InsertAtLast(head, 19);
-    // Display(head);
-
-    // InsertAtLast(head, 39);
-    // Display(head);
 
     int A[] = {10, 20, 30, 40, 50};
     create(A, 5);
@@ -108,6 +107,14 @@ int main()
     cout << endl;
 
     Insert(head, 4, 15);
+    Display(head);
+    cout << endl;
+
+    InsertAtLast(60);
+    Display(head);
+    cout << endl;
+
+    InsertAtLast(19);
     Display(head);
     cout << endl;
 

@@ -19,6 +19,7 @@ void Display(struct Node *p)
 }
 void create(int A[], int n)
 {
+
     int i;
     struct Node *t, *last;
     head = (struct Node *)malloc(sizeof(struct Node));
@@ -50,6 +51,7 @@ int isLoop(struct Node *f)
 
 int main()
 {
+
     struct Node *t1, *t2;
     int A[] = {10, 20, 30, 40, 50};
     create(A, 5);
@@ -57,5 +59,6 @@ int main()
     t2 = head->next->next->next->next;
     t2->next = t1;
     cout << isLoop(head);
+
     return 0;
 }

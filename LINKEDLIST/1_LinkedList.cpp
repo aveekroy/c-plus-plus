@@ -14,6 +14,12 @@ Node *head = NULL;
 // See detailed explanation on Notes (Notability-C and C++)
 void create(int A[], int length)
 {
+    Node *a = NULL;
+    Node *b;
+
+    cout << a << endl;
+    cout << b << endl;
+
     Node *t, *last;
     head = new Node;
     head->data = A[0];
@@ -81,9 +87,9 @@ int Max(Node *p)
 
 int main()
 {
-
     int A[] = {3, 5, 7, 10, 25, 8, 32, 2};
     create(A, sizeof(A) / sizeof(int));
+
     cout << "Linked List: " << endl;
     Display(head);
     cout << endl;
